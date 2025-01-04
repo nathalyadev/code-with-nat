@@ -1,3 +1,3 @@
-const HOME = "";
+const HOME = "/inicio";
 
 export const routesConfigs = { HOME };
