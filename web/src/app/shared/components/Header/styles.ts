@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const StyledHeader = styled.nav`
+export const StyledNav = styled.nav`
   background-color: #ffffff;
 
   display: flex;
@@ -9,12 +10,21 @@ export const StyledHeader = styled.nav`
 
   padding: 1em 1.875em;
 
-  ul {
+  .navigation {
     display: flex;
     gap: 1.875em;
 
-    li {
+    .navigation-item {
       color: #000000;
+
+      display: flex;
+      align-items: center;
     }
   }
+`;
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  position: relative;
 `;
