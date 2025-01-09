@@ -1,3 +1,5 @@
 const HOME = "/inicio";
 
-export const routesConfigs = { HOME };
+const DOCUMENTATIONS = "/documentacoes";
+
+export const routesConfigs = { HOME, DOCUMENTATIONS };
