@@ -1,6 +1,8 @@
-import { arrowDropDownIcon, logo } from "../../assets";
+import { logo } from "../../assets";
 import { StyledLink, StyledNav } from "./styles";
 import { Dropdown } from "../Dropdown";
+import { dropdownOptions } from "../../constants/options";
+import { routesConfigs } from "../../configs/routes";
 
 export function Header() {
   return (
@@ -8,29 +10,30 @@ export function Header() {
       <img src={logo} alt="" />
 
       <ul className="navigation">
-        <StyledLink to={"#"}>
+        <StyledLink to={routesConfigs.HOME}>
           <li className="navigation-item">Início</li>
         </StyledLink>
-        <StyledLink to={"#"}>
-          <li className="navigation-item">
-            <span>Front-end</span>
-            <img src={arrowDropDownIcon} alt="" />
-          </li>
-
-          <Dropdown />
-        </StyledLink>
 
         <StyledLink to={"#"}>
-          <li className="navigation-item">Back-end</li>
+          <Dropdown
+            dropdownTitle="Front-end"
+            options={dropdownOptions.frontEnd}
+          />
         </StyledLink>
+
         <StyledLink to={"#"}>
-          <li className="navigation-item">Mobile</li>
+          <Dropdown
+            dropdownTitle="Back-end"
+            options={dropdownOptions.backEnd}
+          />
         </StyledLink>
+
         <StyledLink to={"#"}>
-          <li className="navigation-item">SQL</li>
+          <Dropdown dropdownTitle="Mobile" options={dropdownOptions.mobile} />
         </StyledLink>
+
         <StyledLink to={"#"}>
-          <li className="navigation-item">Configurações</li>
+          <Dropdown dropdownTitle="SQL" options={dropdownOptions.sql} />
         </StyledLink>
       </ul>
     </StyledNav>

@@ -8,10 +8,11 @@ export const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  padding: 1em 1.875em;
+  padding: 0em 1.875em;
 
   .navigation {
     display: flex;
+    align-items: center;
     gap: 1.875em;
 
     .navigation-item {
@@ -24,7 +25,11 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledLink = styled(Link)`
-  display: flex;
-  align-items: center;
+  display: inline-block;
   position: relative;
+  padding: 1em 0;
+
+  &:hover .dropdown-content {
+    display: block;
+  }
 `;

@@ -1,34 +1,38 @@
-import { IoLogoReact } from "react-icons/io5";
 import { StyledDropdownList } from "./styles";
+import { arrowDropDownIcon } from "../../assets";
+import { Link } from "react-router-dom";
+import { routesConfigs } from "../../configs/routes";
 
-interface IDropdownProps {}
+interface IDropdownProps {
+  dropdownTitle: string;
+  options: Models.DropdownOption[];
+}
 
-export function Dropdown({}: IDropdownProps) {
+export function Dropdown({ dropdownTitle, options }: IDropdownProps) {
   return (
-    <StyledDropdownList>
-      <li>
-        <div className="dropdown">
-          <IoLogoReact />
-          <p className="dropdown-title">React JS</p>
-        </div>
+    <>
+      <li className="navigation-item ">
+        <span>{dropdownTitle}</span>
 
-        <div className="dropdown">
-          <IoLogoReact />
-          <p>Documentações sobre a linguagem</p>
-        </div>
+        {options.length > 0 && <img src={arrowDropDownIcon} alt="" />}
       </li>
 
-      <li>
-        <div className="dropdown">
-          <IoLogoReact />
-          <p className="dropdown-title">React JS</p>
-        </div>
+      <StyledDropdownList className="dropdown-content">
+        {options.map((option, key) => (
+          <Link to={routesConfigs.DOCUMENTATIONS} key={key}>
+            <li>
+              <div className="dropdown-item">
+                {option.icon}
+                <p className="dropdown-title">{option.title}</p>
+              </div>
 
-        <div className="dropdown">
-          <IoLogoReact />
-          <p>Documentações sobre a linguagem</p>
-        </div>
-      </li>
-    </StyledDropdownList>
+              <div className="dropdown-item">
+                <p className="dropdown-desc">{option.description}</p>
+              </div>
+            </li>
+          </Link>
+        ))}
+      </StyledDropdownList>
+    </>
   );
 }
